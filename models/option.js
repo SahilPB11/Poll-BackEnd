@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const optionSchema = new mongoose.Schema({
   option: {
@@ -19,4 +19,4 @@ const optionSchema = new mongoose.Schema({
 });
 
 const Option = mongoose.model("Option", optionSchema);
-module.exports = Option;
+export default Option;

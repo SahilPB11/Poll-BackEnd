@@ -1,18 +1,18 @@
 import mongoose from "mongoose";
 
 // here we are making the schema for adding question and also addig the options
-const Schema= new mongoose.Schema({
-    title:{
-        type: String,
-        required: true
+const Schema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  options: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Option",
     },
-    options:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref:"Option"
-        }
-    ]
+  ],
 });
 
-const Question = mongoose.model('Question', Schema);
+const Question = mongoose.model("Question", Schema);
 export default Question;
