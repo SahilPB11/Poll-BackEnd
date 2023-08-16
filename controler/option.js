@@ -1,5 +1,5 @@
-import Option from "../models/option";
-import Question from "../models/question";
+import Option from "../models/option.js";
+import Question from "../models/question.js";
 
 export const createOption = async (req, res) => {
   try {

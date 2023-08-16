@@ -1,7 +1,7 @@
 import Option from "../models/option.js";
 import Question from "../models/question.js";
 
-export const create = async (req, res) => {
+export const createQuestion = async (req, res) => {
   try {
     await Question.create(req.body).then(() => {
       res.status(200).json({ message: "Question is created successfullt" });
