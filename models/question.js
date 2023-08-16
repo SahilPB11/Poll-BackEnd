@@ -9,7 +9,7 @@ const Schema= new mongoose.Schema({
     options:[
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"option"
+            ref:"Option"
         }
     ]
 });
