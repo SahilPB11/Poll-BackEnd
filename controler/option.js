@@ -14,26 +14,25 @@ export const createOption = async (req, res) => {
     });
     updateOpt.save();
     // now searching the question so that we can append the option in question-->option array
-    const ques = await Question.findById(req.params.id);
-    if (ques) {
-      ques.options.push(updateOpt);
-      ques.save();
-      res.status(200).send(ques);
-    }
+    const ques = await Question.findById({ _id: req.params.id });
+    if (!ques) return res.status(400).json({ message: "not added " });
+    ques.options.push(updateOpt, ...ques.options);
+    ques.save();
+    res.status(200).send(ques);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };
 
+// here we are adding the vote
 export const add_vote = async function (req, res) {
   try {
     // this the increment query in which the vote is incremented by one
     const opt = await Option.findByIdAndUpdate(req.params.id, {
-      $inc: { vote: 1 },
+      $inc: { vote: +1 },
     });
     if (opt) {
       await opt.save();
-      console.log(opt);
       res.send(opt);
     }
     // handling the bad requests

@@ -12,5 +12,5 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json());
 
 // here we are using the routes
-app.use('/v1',routerOptions);
-app.use('/v1',routerQuestion);
+app.use('/v1/options',routerOptions);
+app.use('/v1/questions',routerQuestion);
