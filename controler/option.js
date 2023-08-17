@@ -10,7 +10,7 @@ export const createOption = async (req, res) => {
     });
     // here we are adding the vote optuion of the id that is given by mongodb by updatequery and using the string
     const updateOpt = await Option.findByIdAndUpdate(opt._id, {
-      add_vote: `http://localhost:8000/v1/options/${opt._id}/add_vote`,
+      add_vote: `http://localhost:8000/v1/options/add_vote/${opt._id}`,
     });
     updateOpt.save();
     // now searching the question so that we can append the option in question-->option array
